@@ -1,0 +1,148 @@
+@import '../../styles/colors.scss';
+
+.loc-container {
+    font-family: "Poppins", sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .loc-content-container {
+        width: 90vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+        .loc-map-container {
+            order: 2;
+            min-height: 200px;
+            margin: 0;
+        }
+
+        .loc-info-content {
+            order: 1;
+        }
+    }
+}
+
+.loc-map-container {
+    min-height: 650px;
+    margin-right: -50px;
+    margin-left: 50px;
+
+    @media (max-width: 768px) {
+      margin: 0px;
+    }
+
+    .loc-map-frame {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        border: none;
+
+        .loc-iframe-large {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+.loc-info-content {
+    margin-left: -50px;
+    margin-right: 50px;
+    @media (max-width: 768px) {
+      margin: 0px;
+    }
+
+
+    .loc-hours-text {
+        background-color: $light;
+        padding: 3em;
+        margin: 5em 0em;
+        position: relative;
+        z-index: 2;
+        @media (max-width: 768px) {
+          padding: 1.5em; 
+          margin: 2em 0em;
+        }
+    }
+
+    .loc-hours-label {
+        display: inline-block;
+        background-color: $primary;
+        color: $light;
+        padding: 4px 8px;
+        font-size: 1.5vw;
+        font-weight: 600;
+        font-family: "Great Vibes", sans-serif;
+
+        @media (max-width: 768px) {
+          font-size: 1.2em;
+        }
+    }
+
+    .loc-title {
+        margin-top: -0.5vw;
+        font-size: 2.5vw;
+        color: $dark;
+        font-weight: bold;
+        @media (max-width: 768px) {
+          font-size: 2em;
+        }
+    }
+
+    .loc-description {
+        margin-top: 1.5em;
+        border-left: 1px solid $primary;
+        padding-left: 16px;
+        font-size: 1em;
+        font-weight: 100;
+        color: $grey;
+        @media (max-width: 768px) {
+          font-size: 0.8em;
+        }
+    }
+
+    .loc-hours-item {
+        display: flex;
+        align-items: center;
+        font-size: 1em;
+        color: $dark;
+        @media (max-width: 768px) {
+          font-size: 0.8em;
+        }
+
+        .loc-hours-item-icon {
+            font-size: 1.5em;
+            color: $primary;
+            font-weight: bold;
+            margin-right: 0.5em;
+            @media (max-width: 768px) {
+              font-size: 1.2em;
+            }
+        }
+    }
+
+    .loc-btn-container {
+        display: block;
+        margin: 0px;
+        .loc-booking-btn {
+            border-radius: 0;
+            border: none;
+            background-color: $primary;
+            margin: 0px;
+
+            @media (max-width: 768px) {
+              font-size: 0.8em;
+            }
+            
+            &:hover {
+              background-color: $secondary;
+            }
+    
+        }
+    }
+}

@@ -1,0 +1,67 @@
+@import "../../styles/colors.scss";
+
+
+.admin-searchbar-section {
+    margin: 0;
+    padding: 0;
+    height: 60px;
+    background-color: $light;
+    display: flex;
+    align-items: center;
+
+    .admin-searchbar-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2rem;
+        width: 100%;
+
+        .admin-searchbar-add-search {
+            display: flex;
+            gap: 1rem;
+
+            .dropdown-toggle {
+                border-radius: 0;
+                font-size: 1rem;
+                border: none;
+                background-color: $dark;
+            }
+
+            .dropdown-menu {
+                border-radius: 0;
+                font-size: 1rem;
+            }
+
+            button {
+                border-radius: 0;
+                font-size: 1rem;
+                border: none;
+                background-color: $dark;
+            }
+        }
+
+        .admin-searchbar-date {
+            display: flex;
+            font-size: 1.5rem;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: $dark;
+
+            p {
+                margin: auto;
+            }
+
+        }
+
+        .admin-searchbar-icons {
+            display: flex;
+            gap: 1rem;
+
+            a {
+                color: $dark;
+            }
+        }
+    }
+}
+

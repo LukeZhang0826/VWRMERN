@@ -1,0 +1,87 @@
+@import "../../styles/colors.scss";
+
+.contact {
+  font-family: "Poppins", sans-serif;
+  align-items: center;
+  justify-content: center;
+
+  .justify-center {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .contact-container {
+    width: 70vw;
+    @media (max-width: 768px) {
+      width: 90vw;
+      height: auto;
+    }
+  }
+
+  .contact-form {
+    background-color: $light;
+    padding: 3em;
+
+    @media (max-width: 768px) {
+      padding: 1.5em;
+    }
+
+    .custom-header {
+      display: inline-block;
+      background-color: $primary;
+      color: $light;
+      padding: 4px 8px;
+      font-size: 1.5vw;
+      font-weight: 600;
+      font-family: "Great Vibes", sans-serif;
+
+      @media (max-width: 768px) {
+        font-size: 1.2em;
+      }
+    }
+
+    .contact-query {
+      margin-top: -0.5vw;
+      font-size: 2.5vw;
+      color: $dark;
+      font-weight: bold;
+      @media (max-width: 768px) {
+        font-size: 2em;
+      }
+    }
+
+    .control-group {
+      input,
+      textarea {
+        font-size: 1em;
+        font-weight: 100;
+        color: $grey;
+        border: none;
+        width: 100%;
+        padding: 1em;
+        &:focus {
+          outline: none;
+          box-shadow: none;
+        }
+        @media (max-width: 768px) {
+          font-size: 0.8em;
+        }
+      }
+    }
+
+    .contact-button {
+      background-color: $primary;
+      color: #fff;
+      margin: 0px;
+      border-radius: 0;
+      border: none;
+      @media (max-width: 768px) {
+        font-size: 0.8em;
+      }
+      &:hover {
+        background-color: $secondary;
+      }
+    }
+  }
+}

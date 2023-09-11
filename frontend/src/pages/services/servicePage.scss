@@ -1,0 +1,88 @@
+@import "../../styles/colors.scss";
+
+.services-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 160px 40px;
+
+    .services {
+        width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 24px;
+
+        .service-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: $dark;
+        }
+        
+        .service-container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+            gap: 40px;
+
+            .service-container-image {
+                width: 30%;
+            };
+    
+            .service-container-content {
+                width: 30%;
+
+                .service-container-title {
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                    color: $primary;
+                    padding: 0.5rem 2rem;
+                    background-color: $light;
+                    font-family: 'Great Vibes', cursive;
+                    display: inline-block
+                }
+
+                .service-container-paragraph {
+                    font-size: 1rem;
+                    color: $grey;
+                }
+
+                .service-container-table {
+                    font-size: 1rem;
+                    color: $grey;
+                    width: 100%;
+                    border-collapse: collapse;
+                  
+                    th, td {
+                      border: 1px solid #ccc;
+                      text-align: left;
+                      padding: 4px;
+                    }
+                  
+                    th {
+                        background-color: $light;
+                        // Add this to set the width
+                        &:first-child {
+                            width: 30%; // Or any other percentage or fixed width
+                        }
+                        &:last-child {
+                            width: 30%; // Or any other percentage or fixed width
+                        }
+                    }
+                  
+                    tr:nth-child(even) {
+                        background-color: $light;
+                    }
+
+
+                }
+            };
+
+        }
+    }
+}

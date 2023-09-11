@@ -1,0 +1,117 @@
+@import "../../styles/colors.scss";
+
+
+.appointment-info {
+    height: 100vh;
+    position: fixed;
+    background-color: white;
+    width: 15%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 8px solid $dark;
+    overflow: auto;
+
+    .appointment-info-container {
+        margin: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        p {
+            font-size: 0.8rem;
+            margin: 0;
+        }
+
+        .appointment-info-title {
+            font-size: 1rem;
+            font-weight: bold; 
+            margin: 0;
+            text-decoration: underline;
+        }
+
+        .appointment-info-subtitle {
+            font-size: 0.8rem;
+            font-weight: bold; 
+            margin: 0;
+        }
+        
+        .appointment-info-select {
+            font-size: 0.8rem;
+        }
+
+        .appointment-info-input {
+            font-size: 0.8rem;
+        }
+
+        .appointment-info-button {
+            border: none;
+            font-size: 0.8rem;
+            background-color: $primary;
+            color: white;
+            padding: 0.5rem 1rem;
+
+            &:hover {
+                background-color: $light;
+            }
+        }
+    }
+
+}
+
+.admin-scheduler-sidebar-container {
+    height: 100%;
+    padding: 0.5rem;
+}
+.admin-scheduler-container {
+    padding: 1rem 2rem;
+    height: 100%;
+
+    .rbc-calendar {
+        padding: 0;
+    }
+}
+
+.MuiPickersCalendarHeader-label {
+    font-size: 0.6rem;
+}
+
+.MuiPickersCalendarHeader-root {
+    padding: 0 !important;
+    margin: 0.5rem !important;
+}
+
+.MuiPickersDay-root {
+    max-height: 2rem;
+    max-width: 2rem;
+}
+
+.MuiYearCalendar-root {
+    width: 100%;
+    max-width: 100%;
+    font-size: 0.7rem;
+}
+
+.MuiPickersYear-yearButton {
+    font-size: 0.7rem !important;
+    padding: 0.5rem !important;
+    width: 100% !important;
+}
+
+.MuiFormGroup-root {
+    padding: 1rem 0.5rem;
+    
+    .MuiTypography-root {
+        font-size: 0.8rem !important;
+        font-family: 'poppins', sans-serif;
+    }
+}
+
+.MuiFormControlLabel-root {
+    height: 2.5rem;
+}
+
+.admin-sidebar-scheduler-border-bottom {
+    border-bottom: 1px solid $dark;
+}

@@ -1,0 +1,153 @@
+@import "../../styles/colors.scss";
+
+.testimonial-container {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .inner-container {
+    width: 80vw;
+    height: 80vh;
+
+    @media (max-width: 768px) {
+      width: 90vw;
+      height: auto;
+    }
+
+    .align-items-center {
+      height: 100%;
+      align-items: center;
+      display: flex;
+
+      @media (max-width: 768px) {
+        flex-direction: column-reverse;
+      }
+    }
+
+    .image-container {
+      width: 60%;
+      margin: 0;
+
+      img {
+        object-fit: cover;
+        height: 60vh;
+        width: 100%;
+        @media (max-width: 768px) {
+          height: 30vh;
+        }
+      }
+
+      @media (max-width: 768px) {
+        width: 100%;
+        margin: 24px 0px;
+      }
+    }
+
+    .text-container {
+      width: 40%;
+
+      .testimonial-title {
+        display: inline-block;
+        font-family: "Great Vibes", sans-serif;
+        background-color: $light;
+        color: $primary;
+        padding: 4px 8px;
+        font-size: 1.5vw;
+        font-weight: 600;
+      }
+
+      .testimonial-header {
+        margin-top: -0.5vw;
+        font-size: 2.5vw;
+        color: $dark;
+        font-weight: bold;
+      }
+
+      .carousel-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+
+        .carousel-item {
+          height: auto;
+          min-height: 10em;
+
+          @media (max-width: 768px) {
+            min-height: 10em;
+          }
+
+          .testimonial-name {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: $dark;
+
+            svg {
+              font-size: 1.25em;
+            }
+          }
+
+          .testimonial-description {
+            margin-top: -0.5em;
+            border-left: 1px solid $primary;
+            padding-left: 16px;
+            font-size: 1em;
+            font-weight: 100;
+            color: $grey;
+
+            @media (max-width: 768px) {
+              font-size: 0.8em;
+            }
+          }
+        }
+
+        .custom-indicators {
+          display: flex;
+          gap: 10px;
+          align-self: left;
+
+          @media (max-width: 768px) {
+            justify-content: center;
+            margin-top: 1em;
+          }
+
+          .testimonial-indicator {
+            cursor: pointer;
+            width: 25px;
+            height: 25px;
+            border: 1px solid $primary;
+            background-color: $light;
+            transition: all 0.5s;
+          }
+
+          .testimonial-indicator-active {
+            width: 50px;
+            background-color: $primary;
+          }
+        }
+      }
+
+      @media (max-width: 768px) {
+        width: 100%;
+        margin-top: 1em;
+
+        .testimonial-title {
+          font-size: 1.2em;
+        }
+
+        .testimonial-header {
+          font-size: 2em;
+        }
+
+        .carousel-item {
+          .testimonial-name {
+            font-size: 1em;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.admin-content-section {
+    position: fixed;
+    margin: 0;
+    margin-left: 15%;
+    width: 85%;
+    height: 100vh;
+    z-index: 999;
+
+    .admin-content-section-content {
+        height: calc(100% - 60px);
+        background-color: #fff;
+    }
+}

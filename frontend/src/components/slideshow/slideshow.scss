@@ -1,0 +1,148 @@
+.slideshow {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;  // Ensure the slideshow takes up the full viewport height
+    position: relative; // Indicators will be placed relative to this container
+    font-family: 'Poppins', sans-serif;
+}
+
+.slideshow-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;  // Ensure the slideshow takes up the full viewport height
+}
+
+.carousel-title {
+    letter-spacing: 3px;
+    font-weight: 600;
+    display: inline-block;
+
+    @media (max-width: 768px) {
+        font-size: 0.5em;
+    }
+}
+
+.carousel-service{
+    font-size: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Great Vibes', sans-serif;
+
+    @media (max-width: 768px) {
+        font-size: 2em;
+    }
+}
+
+.carousel-description {
+    width: 50%;
+    @media (max-width: 768px) {
+        font-size: 0.8em;
+        width: 90%;
+    }
+}
+
+.custom-carousel {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.carousel-item {
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel-caption {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    bottom: unset;
+    text-align: center;
+    width: 60%;
+
+    @media (max-width: 768px) {
+        width: 80%;
+    }
+}
+
+.slideshow-custom-indicators {
+    position: absolute;
+    margin: 0 auto 25px;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    justify-content: center;
+    display: flex;
+    width: 100%;
+    gap: 10px;
+    z-index: 2;
+}
+
+.slideshow-indicator {
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    border: 1px solid white;
+    background-color: rgba(75, 75, 75, 0);
+    transition: all 0.5s;
+}
+
+.slideshow-indicator-active {
+    width: 50px;
+    background-color: white;
+}
+
+.darkened-image {
+    position: relative;
+    img {
+        width: 100%;
+        height: 100vh;
+        object-fit: cover;
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.6); 
+    }
+}
+
+.custom-button {
+    background-color: rgba(75, 75, 75, 0);
+    border: 1px solid white;
+    color: white;
+    padding: 20px;
+    cursor: pointer;
+    width: 200px;
+    transition: all 0.5s;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin: 1em auto; 
+    border-radius: 0;
+
+    &:hover {
+        background-color: white;
+        color: black;
+    }
+
+    @media (max-width: 768px) {
+        padding: 15px;
+        width: 150px;
+    }
+}

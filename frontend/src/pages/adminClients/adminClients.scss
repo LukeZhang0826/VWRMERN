@@ -1,0 +1,20 @@
+@import "../../styles/colors.scss";
+
+.admin-clients-sidebar-container-content {
+    margin: 0 0.5rem;
+
+    .admin-clients-alphabet-container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-gap: 10px;
+        padding: 1.5rem 1rem;
+        border-bottom: 1px solid $dark;
+
+        .admin-clients-alphabet-button {
+            border: none;
+            color: white;
+            border-radius: 3px;
+        }
+    }
+}

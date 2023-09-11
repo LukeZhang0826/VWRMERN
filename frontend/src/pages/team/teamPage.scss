@@ -1,0 +1,27 @@
+@import "../../styles/colors.scss";
+
+.team-section {
+    padding: 200px 0;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+        .team-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: $dark;
+        }
+
+        .team {
+            background-color: $primary;
+            text-align: center;
+            padding: 0.7rem;
+            color: white;
+            
+            .team-text {
+                margin: 0.5rem 0;
+            }
+        }
+    }
+    
