@@ -1,8 +1,11 @@
 import asyncHandler from 'express-async-handler';
 import Appointment from '../models/appointmentModel.js'
 import User from '../models/userModel.js'
-import requestEmail from '../email/requestEmail.js';
-import notifyEmail from '../email/notificationEmail.js'
+// import requestEmail from '../email/requestEmail.js';
+// import notifyEmail from '../email/notificationEmail.js'
+import sgMail from '@sendgrid/mail';
+
+sgMail.setApiKey("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");
 
 // @desc    Create an appointment
 // @route   POST /api/appointments
@@ -41,17 +44,82 @@ const createAppointment = asyncHandler(async (req, res) => {
         }
 
         // Send an email to the user
+        // const sendRequestEmail = async () => {
+        //     const msg = {
+        //         to: appointment.email,
+        //         from: 'vivarehab@gmail.com', // Your SendGrid registered email
+        //         subject: 'Viva Wellness & Rehab Centre - Appointment Request', 
+        //         text: 'Thank you for requesting!\nWe will get back to you as soon as possible.\n\n\nViva Welllness& Rehab Centre\n165 Sheppard Ave West\nNorth York, ON, M2N 1M9\n647-352-8688\nwww.vivawellnessrehab.com',
+        //     };
+          
+        //     try {
+        //         await sgMail.send(msg);
+        //         console.log(appointment.email)
+        //     } catch (error) {
+        //         console.error("Error sending email:", error);
+        //     }
+        //   };
 
-        await requestEmail(
-            appointment.email, 
-            'Viva Wellness & Rehab Centre - Appointment Request', 
-            'Thank you for requesting!\nWe will get back to you as soon as possible.\n\n\nViva Welllness& Rehab Centre\n165 Sheppard Ave West\nNorth York, ON, M2N 1M9\n647-352-8688\nwww.vivawellnessrehab.com'
-        );
+        // await requestEmail(
+        //     appointment.email, 
+        //     'Viva Wellness & Rehab Centre - Appointment Request', 
+        //     'Thank you for requesting!\nWe will get back to you as soon as possible.\n\n\nViva Welllness& Rehab Centre\n165 Sheppard Ave West\nNorth York, ON, M2N 1M9\n647-352-8688\nwww.vivawellnessrehab.com'
+        // );
 
-        await notifyEmail(
-            'Viva Wellness & Rehab Centre - Appointment Request',
-            `Appointment Request\n\nName: ${appointment.name}\nEmail: ${appointment.email}\nPhone: ${appointment.phone}\nPractitioner: ${appointment.practitioner}\nService: ${appointment.service}\nSchedule Time: ${appointment.scheduleTime}\nDuration: ${appointment.duration}\nPrice: ${appointment.price}\nMessage: ${appointment.message}\n\nAn email has already been sent to them, check the sent folder!\nDon't forget to update the admin scheduler!`
-        );
+        // const sendNotificationEmail = async () => {
+        //     const msg = {
+        //       to: 'vivarehab@gmail.com', // Your admin/notification email
+        //       from: 'vivarehab@gmail.com', // Your SendGrid registered email
+        //       subject: 'Viva Wellness & Rehab Centre - Appointment Request',
+        //         text: `Appointment Request\n\nName: ${appointment.name}\nEmail: ${appointment.email}\nPhone: ${appointment.phone}\nPractitioner: ${appointment.practitioner}\nService: ${appointment.service}\nSchedule Time: ${appointment.scheduleTime}\nDuration: ${appointment.duration}\nPrice: ${appointment.price}\nMessage: ${appointment.message}\n\nAn email has already been sent to them, check the sent folder!\nDon't forget to update the admin scheduler!`,
+        //     };
+          
+        //     try {
+        //         await sgMail.send(msg);
+        //         console.log('Email sent')
+        //     } catch (error) {
+        //         console.error("Error sending email:", error);
+        //     }
+        // };
+
+        // sendRequestEmail();
+        // sendNotificationEmail();
+
+        const msg1 = {
+            to: appointment.email,
+            from: 'vivarehab@gmail.com', // Your SendGrid registered email
+            subject: 'Viva Wellness & Rehab Centre - Appointment Request', 
+            text: 'Thank you for requesting!\nWe will get back to you as soon as possible.\n\n\nViva Welllness& Rehab Centre\n165 Sheppard Ave West\nNorth York, ON, M2N 1M9\n647-352-8688\nwww.vivawellnessrehab.com',
+        };
+        sgMail
+        .send(msg1)
+        .then(() => {
+            console.log('Email sent')
+        })
+        .catch((error) => {
+            console.error(error)
+        })
+
+        const msg2 = {
+            to: 'vivarehab@gmail.com', // Your admin/notification email
+            from: 'vivarehab@gmail.com', // Your SendGrid registered email
+            subject: 'Viva Wellness & Rehab Centre - Appointment Request',
+            text: `Appointment Request\n\nName: ${appointment.name}\nEmail: ${appointment.email}\nPhone: ${appointment.phone}\nPractitioner: ${appointment.practitioner}\nService: ${appointment.service}\nSchedule Time: ${appointment.scheduleTime}\nDuration: ${appointment.duration}\nPrice: ${appointment.price}\nMessage: ${appointment.message}\n\nAn email has already been sent to them, check the sent folder!\nDon't forget to update the admin scheduler!`,
+        };
+
+        sgMail
+        .send(msg2)
+        .then(() => {
+            console.log('Notif email sent')
+        })
+        .catch((error) => {
+            console.error(error)
+        })
+
+        // await notifyEmail(
+        //     'Viva Wellness & Rehab Centre - Appointment Request',
+        //     `Appointment Request\n\nName: ${appointment.name}\nEmail: ${appointment.email}\nPhone: ${appointment.phone}\nPractitioner: ${appointment.practitioner}\nService: ${appointment.service}\nSchedule Time: ${appointment.scheduleTime}\nDuration: ${appointment.duration}\nPrice: ${appointment.price}\nMessage: ${appointment.message}\n\nAn email has already been sent to them, check the sent folder!\nDon't forget to update the admin scheduler!`
+        // );
 
         res.status(201).json(appointment);
     } else {

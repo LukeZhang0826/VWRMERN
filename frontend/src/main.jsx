@@ -5,7 +5,7 @@ import './main.scss';
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
 import store from './store';
 import { Provider } from 'react-redux'
-import UserPrivateRoute from './components/componentRouting/userPrivateRoute.jsx';
+import UserPrivateRoute from './components/componentRouting/UserPrivateRoute.jsx';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import LoginPage from './pages/login/LoginPage.jsx';
 import ServicePage from './pages/services/ServicePage.jsx';
