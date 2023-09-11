@@ -3,9 +3,11 @@ import Appointment from '../models/appointmentModel.js'
 import User from '../models/userModel.js'
 // import requestEmail from '../email/requestEmail.js';
 // import notifyEmail from '../email/notificationEmail.js'
+import dotenv from 'dotenv';
+dotenv.config();
 import sgMail from '@sendgrid/mail';
 
-sgMail.setApiKey("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");
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 // @desc    Create an appointment
 // @route   POST /api/appointments
@@ -87,7 +89,7 @@ const createAppointment = asyncHandler(async (req, res) => {
 
         const msg1 = {
             to: appointment.email,
-            from: 'vivarehab@gmail.com', // Your SendGrid registered email
+            from: process.env.SENDER_EMAIL, // Your SendGrid registered email
             subject: 'Viva Wellness & Rehab Centre - Appointment Request', 
             text: 'Thank you for requesting!\nWe will get back to you as soon as possible.\n\n\nViva Welllness& Rehab Centre\n165 Sheppard Ave West\nNorth York, ON, M2N 1M9\n647-352-8688\nwww.vivawellnessrehab.com',
         };
@@ -101,8 +103,8 @@ const createAppointment = asyncHandler(async (req, res) => {
         })
 
         const msg2 = {
-            to: 'vivarehab@gmail.com', // Your admin/notification email
-            from: 'vivarehab@gmail.com', // Your SendGrid registered email
+            to: process.env.NOTIFICATION_EMAIL, // Your admin/notification email
+            from: process.env.SENDER_EMAIL, // Your SendGrid registered email
             subject: 'Viva Wellness & Rehab Centre - Appointment Request',
             text: `Appointment Request\n\nName: ${appointment.name}\nEmail: ${appointment.email}\nPhone: ${appointment.phone}\nPractitioner: ${appointment.practitioner}\nService: ${appointment.service}\nSchedule Time: ${appointment.scheduleTime}\nDuration: ${appointment.duration}\nPrice: ${appointment.price}\nMessage: ${appointment.message}\n\nAn email has already been sent to them, check the sent folder!\nDon't forget to update the admin scheduler!`,
         };
